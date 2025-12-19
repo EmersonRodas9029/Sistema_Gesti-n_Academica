@@ -4,33 +4,30 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                              http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  
+
   <groupId>com.lab</groupId>
   <artifactId>sistema-control-academico</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>Sistema de Control Académico</name>
-  
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
   </properties>
-  
+
   <dependencies>
     <!-- Dependencia de MySQL -->
     <dependency>
-        <groupId>com.mysql</groupId>
-        <artifactId>mysql-connector-j</artifactId>
-        <version>8.3.0</version>
+      <groupId>com.mysql</groupId>
+      <artifactId>mysql-connector-j</artifactId>
+      <version>8.3.0</version>
     </dependency>
-    
-    <!-- Swing ya está incluido en Java, no necesita dependencia -->
   </dependencies>
-  
+
   <build>
     <plugins>
-      <!-- Plugin para compilar con Java 17 -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -40,8 +37,7 @@
           <target>17</target>
         </configuration>
       </plugin>
-      
-      <!-- Plugin para crear el JAR ejecutable -->
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
@@ -49,7 +45,6 @@
         <configuration>
           <archive>
             <manifest>
-              <!-- CLASE PRINCIPAL - IMPORTANTE -->
               <mainClass>main.Principal</mainClass>
               <addClasspath>true</addClasspath>
               <classpathPrefix>lib/</classpathPrefix>
@@ -57,8 +52,7 @@
           </archive>
         </configuration>
       </plugin>
-      
-      <!-- Plugin para copiar dependencias a una carpeta lib -->
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
@@ -72,9 +66,6 @@
             </goals>
             <configuration>
               <outputDirectory>${project.build.directory}/lib</outputDirectory>
-              <overWriteReleases>false</overWriteReleases>
-              <overWriteSnapshots>false</overWriteSnapshots>
-              <overWriteIfNewer>true</overWriteIfNewer>
             </configuration>
           </execution>
         </executions>
